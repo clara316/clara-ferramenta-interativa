@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferramenta Interativa de Estudos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f0f5;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            background-color: #d48dcf;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        h1 {
+            margin: 0;
+        }
+        .note-container {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .note-input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #d48dcf;
+            border-radius: 5px;
+        }
+        .note-button {
+            background-color: #d48dcf;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .note-button:hover {
+            background-color: #c070b8;
+        }
+        .notes-list {
+            list-style: none;
+            padding: 0;
+        }
+        .notes-list li {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #e9e9e9;
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #d48dcf;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Ferramenta Interativa de Estudos</h1>
+</header>
+
+<section class="note-container">
+    <h2>Crie sua Nota de Estudo</h2>
+    <input type="text" id="noteInput" class="note-input" placeholder="Digite seu tópico de estudo aqui...">
+    <button class="note-button" onclick="addNote()">Adicionar Nota</button>
+    
+    <h3>Notas Criadas</h3>
+    <ul id="notesList" class="notes-list"></ul>
+</section>
+
+<footer>
+    <p>&copy; 2024 Ferramenta de Estudos Interativa</p>
+</footer>
+
+<script>
+    function addNote() {
+        const input = document.getElementById('noteInput');
+        const noteText = input.value.trim();
+        if (noteText) {
+            const notesList = document.getElementById('notesList');
+            const listItem = document.createElement('li');
+            listItem.textContent = noteText;
+            notesList.appendChild(listItem);
+            input.value = ''; // Limpa o campo de entrada
+        } else {
+            alert('Por favor, digite um tópico.');
+        }
+    }
+</script>
+
+</body>
+</html>
